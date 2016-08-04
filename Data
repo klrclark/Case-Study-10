@@ -1,0 +1,70 @@
+Importing data
+
+The following R code was executed to import the data to begin the analysis
+
+1. importing ImportedAsIsDataChulwalar.csv
+  ImportedAsIsData <- read.csv('C:\\Users\\kclark.RXDATA.000\\Personal\\SMU\\Doing Data Science MSDS 6306\\Unit 10 Case Study\\ChulwalarCase\\ImportedAsIsDataChulwalar.csv', header = F, sep=";", fill = T) 
+
+2. importing ImportedPlanDataChulwalar.csv
+  ImportedPlanData <- read.csv('C:\\Users\\kclark.RXDATA.000\\Personal\\SMU\\Doing Data Science MSDS 6306\\Unit 10 Case Study\\ChulwalarCase\\ImportedPlanDataChulwalar.csv', header = F, sep=";", fill = T) 
+
+3. importing ImportedIndicatorsChulwalar.csv
+ImportedIndicators <- read.csv('C:\\Users\\kclark.RXDATA.000\\Personal\\SMU\\Doing Data Science MSDS 6306\\Unit 10 Case Study\\ChulwalarCase\\ImportedIndicatorsChulwalar.csv', header = F, sep=";", fill = T) 
+
+Data Transformations:
+
+Data Vectors were created with partial data sets for data analysis and forecasting.
+
+As Is Data Set Vectors Created:
+
+  1. TotalAsIsVector
+  TotalAsIsVector <- c(ImportedAsIsData [2:13,2],ImportedAsIsData [2:13,3],ImportedAsIsData [2:13,4],ImportedAsIsData [2:13,5],ImportedAsIsData [2:13,6],ImportedAsIsData [2:13,7])
+  2. TotalEtelAsIsVector
+  TotalEtelAsIsVector <- c(ImportedAsIsData [44:55,2],ImportedAsIsData [44:55,3],ImportedAsIsData [44:55,4],ImportedAsIsData [44:55,5],ImportedAsIsData [44:55,6],ImportedAsIsData [44:55,7])
+  3. BlueEtelAsIsVector
+  BlueEtelAsIsVector <- c(ImportedAsIsData [58:69,2],ImportedAsIsData [58:69,3],ImportedAsIsData [58:69,4],ImportedAsIsData [58:69,5],ImportedAsIsData [58:69,6],ImportedAsIsData [58:69,7])
+  4. RedEtelAsIsVector
+  RedEtelAsIsVector <- c(ImportedAsIsData [72:83,2],ImportedAsIsData [72:83,3],ImportedAsIsData [72:83,4],ImportedAsIsData [72:83,5],ImportedAsIsData [72:83,6],ImportedAsIsData [72:83,7])
+  5. YearAsIsVector
+  YearAsIsVector <- c(ImportedAsIsData [86,2],ImportedAsIsData [86,3],ImportedAsIsData [86,4],ImportedAsIsData [86,5],ImportedAsIsData [86,6],ImportedAsIsData [86,7])
+  6. TotalAsIsVector_2014
+  TotalAsIsVector_2014 <- c(ImportedAsIsData[2:13,8])
+  
+Plan Data Vectors Created:
+
+  1. PlanVector
+  PlanVector <- c(ImportedPlanData[2:13,2],ImportedPlanData[2:13,3],ImportedPlanData[2:13,4],ImportedPlanData[2:13,5],ImportedPlanData[2:13,6],ImportedPlanData[2:13,7])
+  2. TotalEtelPlanVector
+   TotalEtelPlanVector <- c(ImportedPlanData[44:55,2],ImportedPlanData[44:55,3],ImportedPlanData[44:55,4],ImportedPlanData[44:55,5],ImportedPlanData[44:55,6],ImportedPlanData[44:55,7])
+  3. BlueEtelPlanVector
+  BlueEtelPlanVector <- c(ImportedPlanData[58:69,2],ImportedPlanData[58:69,3],ImportedPlanData[58:69,4],ImportedPlanData[58:69,5],ImportedPlanData[58:69,6],ImportedPlanData[58:69,7])
+  4. RedEtelPlanVector
+  RedEtelPlanVector <- c(ImportedPlanData[72:83,2],ImportedPlanData[72:83,3],ImportedPlanData[72:83,4],ImportedPlanData[72:83,5],ImportedPlanData[72:83,6],ImportedPlanData[72:83,7])
+  5. YearPlanVector
+  YearPlanVector <- c(ImportedPlanData[86,2],ImportedPlanData[86,3],ImportedPlanData[86,4],ImportedPlanData[86,5],ImportedPlanData[86,6],ImportedPlanData[86,7])
+  6. PlanVector_2014
+  PlanVector_2014 <- c(ImportedPlanData[2:13,8])
+  
+The Vectors were then converted into Time Series data sets.
+  
+  1. TotalAsIs<- ts(TotalAsIsVector , start=c(2008,1), end=c(2013,12), frequency=12)
+  2. TotalEtelAsIs<- ts(TotalEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  3. BlueEtelAsIs <- ts(BlueEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  4. RedEtelAsIs <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  5. YearAsIs <- ts(YearAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  6. TotalAsIs_2014 <- ts(TotalAsIsVector_2014, start=c(2014,1), end=c(2014,12), frequency=12)
+  
+The plan vectors were then converted into Time Series data sets.
+  
+  1. TotalPlan <- ts(PlanVector , start=c(2008,1), end=c(2013,12), frequency=12)
+  2. TotalEtelPlan <- ts(TotalEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  3. BlueEtelPlan <- ts(BlueEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  4. RedEtelPlan <- ts(RedEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  5. YearPlan <- ts(YearPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+  6. TotalPlan_2014 <- ts(PlanVector_2014, start=c(2014,1), end=c(2014,12), frequency=12)
+
+
+
+
+
+
