@@ -44,21 +44,20 @@ The models were examined using all the external indicators that were identified 
 Even though some external indicators provided a high correlation and adjusted R square they did not provide a statistical impact on the Etel flower exports based on the examination of the p-value.  The Etel Flower exports seem to be most impacted by trend and seasonality of the growing season of the flowers, therefore the best models were those that only looked at trend and seasonality.  The Holt - Winter's family models performed well.
 
 
+The Data folder contains detail information about data transformations and data elements
+The Model folder contains detail information about the models that were evaluated and the results
+The R Markdown contains the html, .md, and .rmd of the final report and forecast for Chulwalar
 
+Required packages
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. fmsb
+2. fpp
+3. expsmooth
+4. tseries
+5. forecast
+6. timeDate
+7. lmtest
+8. fma
 
 
 R Session Info:
