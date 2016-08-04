@@ -65,6 +65,111 @@ The plan vectors were then converted into Time Series data sets.
 
 
 
+Shorten the time series in order to test the forecasts                   
 
+Shortening the exports data in the Time Series in order to be able to compare the produced forecasts with the As Is data.
+
+ 1. TotalAsIs_2012 <- ts(TotalAsIsVector , start=c(2008,1), end=c(2012,12), frequency=12)
+ 2. TotalEtelAsIs_2012 <- ts(TotalEtelAsIsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 3. BlueEtelAsIs_2012 <- ts(BlueEtelAsIsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 4. RedEtelAsIs_2012 <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 5. YearAsIs_2012 <- ts(YearAsIsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+
+Shortening the indicators by the same amount
+
+ 1. CEPI_2012 <- ts(CEPIVector , start=c(2008,1), end=c(2012,12), frequency=12)
+ 2. SIGov_2012 <- ts(SIGovVector , start=c(2008,1), end=c(2012,12), frequency=12)
+ 3. Temperature_2012 <- ts(TemperatureVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 4. Births_2012 <- ts(BirthsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 5. SIExtern_2012 <- ts(SIExternVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 6. UrbanoExports_2012 <- ts(UrbanoExportsVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 7. GlobalisationPartyMembers_2012 <- ts(GlobalisationPartyMembersVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 8. AEPI_2012 <- ts(AEPIVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 9. PPIEtel_2012 <- ts(PPIEtel, start=c(2008,1), end=c(2012,12), frequency=12)
+ 10. NationalHolidays_2012 <- ts(NationalHolidaysVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 11. ChulwalarIndex_2012 <- ts(ChulwalarIndexVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 12. Inflation_2012 <- ts(InflationVector, start=c(2008,1), end=c(2012,12), frequency=12)
+ 13. InfluenceNationalHolidays_2012 <- ts(InfluenceNationalHolidaysVector, start=c(2008,1), end=c(2012,12), frequency=12)
+
+
+Seperate the As Is and Plan data for 2013 in order to be able to compare the forecast to this data.
+
+ 1. TotalAsIsVector_2013 <- c(ImportedAsIsData [2:13,7])
+ 2. TotalEtelAsIsVector_2013 <- c(ImportedAsIsData [44:55,7])
+ 3. BlueEtelAsIsVector_2013 <- c(ImportedAsIsData [58:69,7])
+ 4. RedEtelAsIsVector_2013 <- c(ImportedAsIsData [72:83,7])
+ 5. YearAsIsVector_2013 <- c(ImportedAsIsData [86,7])
+ 6. TotalAsIs_2013 <- ts(TotalAsIsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 7. TotalEtelAsIs_2013 <- ts(TotalEtelAsIsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 8. BlueEtelAsIs_2013 <- ts(BlueEtelAsIsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 9. RedEtelAsIs_2013 <- ts(RedEtelAsIsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 10. YearAsIs_2013 <- ts(YearAsIsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+
+ 1. PlanVector_2013 <- c(ImportedPlanData[2:13,7])
+ 2. TotalEtelPlanVector_2013 <- c(ImportedPlanData[44:55,7])
+ 3. BlueEtelPlanVector_2013 <- c(ImportedPlanData[58:69,7])
+ 4. RedEtelPlanVector_2013 <- c(ImportedPlanData[72:83,7])
+ 5. YearPlanVector_2013 <- c(ImportedPlanData[86,7])
+
+ 1. TotalPlan_2013 <- ts(PlanVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 2. TotalEtelPlan_2013 <- ts(TotalEtelPlanVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 3. BlueEtelPlan_2013 <- ts(BlueEtelPlanVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 4. RedEtelPlan_2013 <- ts(RedEtelPlanVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 5. YearPlan_2013 <- ts(YearPlanVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+
+Seperate the indicator data for 2013 and 2014 in order to use these in the forecasts. First as a vector and then as a time series.
+
+ 1. CEPIVector_2013 <- c(ImportedIndicators[2:13,7])
+ 2. CEPIVector_2014 <- c(ImportedIndicators[2:13,8])
+ 3. SIGovVector_2013 <- c(ImportedIndicators[16:27,7])
+ 4. SIGovVector_2014 <- c(ImportedIndicators[16:27,8])
+ 5. TemperatureVector_2013 <- c(ImportedIndicators[30:41,7])
+ 6. TemperatureVector_2014 <- c(ImportedIndicators[30:41,8])
+ 7. BirthsVector_2013 <- c(ImportedIndicators[44:55,7])
+ 8. BirthsVector_2014 <- c(ImportedIndicators[44:55,8])
+ 9. SIExternVector_2013 <- c(ImportedIndicators[58:69,7])
+ 10. SIExternVector_2014 <- c(ImportedIndicators[58:69,8])
+ 11. UrbanoExportsVector_2013 <- c(ImportedIndicators[72:83,7])
+ 12. UrbanoExportsVector_2014 <- c(ImportedIndicators[72:83,8])
+ 13. GlobalisationPartyMembersVector_2013 <- c(ImportedIndicators[86:97,7])
+ 14. GlobalisationPartyMembersVector_2014 <- c(ImportedIndicators[86:97,8])
+ 15. AEPIVector_2013 <- c(ImportedIndicators[100:111,7])
+ 16. AEPIVector_2014 <- c(ImportedIndicators[100:111,8])
+ 17. PPIEtelVector_2013 <- c(ImportedIndicators[114:125,7])
+ 18. PPIEtelVector_2014 <- c(ImportedIndicators[114:125,8])
+ 19. NationalHolidaysVector_2013 <-c(ImportedIndicators[170:181,7])
+ 20. NationalHolidaysVector_2014 <-c(ImportedIndicators[170:181,8])
+ 21. ChulwalarIndexVector_2013 <- c(ImportedIndicators[128:139,7])
+ 22. ChulwalarIndexVector_2014 <- c(ImportedIndicators[128:139,8])
+ 23. InflationVector_2013 <- c(ImportedIndicators[142:153,7])
+ 24. InflationVector_2014 <- c(ImportedIndicators[142:153,8])
+ 25. InfluenceNationalHolidaysVector_2013 <-c(ImportedIndicators[184:195,7])
+ 26. InfluenceNationalHolidaysVector_2014 <-c(ImportedIndicators[184:195,8])
+ 27. CEPI_2013 <- ts(CEPIVector_2013 , start=c(2013,1), end=c(2013,12), frequency=12)
+ 28. CEPI_2014 <- ts(CEPIVector_2014 , start=c(2013,1), end=c(2013,12), frequency=12)
+ 29. SIGov_2013 <- ts(SIGovVector_2013 , start=c(2013,1), end=c(2013,12), frequency=12)
+ 30. SIGov_2014 <- ts(SIGovVector_2014 , start=c(2013,1), end=c(2013,12), frequency=12)
+ 31. Temperature_2013 <- ts(TemperatureVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 32. Temperature_2014 <- ts(TemperatureVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 33. Births_2013 <- ts(BirthsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 34. Births_2014 <- ts(BirthsVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 35. SIExtern_2013 <- ts(SIExternVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 36. SIExtern_2014 <- ts(SIExternVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 37. UrbanoExports_2013 <- ts(UrbanoExportsVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 38. UrbanoExports_2014 <- ts(UrbanoExportsVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 39. GlobalisationPartyMembers_2013 <- ts(GlobalisationPartyMembersVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 40. GlobalisationPartyMembers_2014 <- ts(GlobalisationPartyMembersVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 41. AEPI_2013 <- ts(AEPIVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 42. AEPI_2014 <- ts(AEPIVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 43. PPIEtel_2013 <- ts(PPIEtelVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 44. PPIEtel_2014 <- ts(PPIEtelVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 45. NationalHolidays_2013 <- ts(NationalHolidaysVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 46. NationalHolidays_2014 <- ts(NationalHolidaysVector_2014, start=c(2014,1), end=c(2014,12), frequency=12)
+ 47. ChulwalarIndex_2013 <- ts(ChulwalarIndexVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 48. ChulwalarIndex_2014 <- ts(ChulwalarIndexVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 49. Inflation_2013 <- ts(InflationVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 50. Inflation_2014 <- ts(InflationVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
+ 51. InfluenceNationalHolidaysVector_2013 <- ts(InfluenceNationalHolidaysVector_2013, start=c(2013,1), end=c(2013,12), frequency=12)
+ 52. InfluenceNationalHolidaysVector_2014 <- ts(InfluenceNationalHolidaysVector_2014, start=c(2013,1), end=c(2013,12), frequency=12)
 
 
