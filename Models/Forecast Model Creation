@@ -1,8 +1,9 @@
 
 
-5.2.1.1 Forecast ModelWithHighCorrelatingIndicators
+Forecast ModelWithHighCorrelatingIndicators
 
-# Shorten ModelWithHighCorrelatingIndicators by one year in order to be able to produce a forecast for 2013. 
+Shorten ModelWithHighCorrelatingIndicators by one year in order to be able to produce a forecast for 2013. 
+
 ModelWithHighCorrelatingIndicators_2012 <- tslm(TotalAsIs_2012 ~ trend + season + CEPI_2012 + SIExtern_2012 + UrbanoExports_2012 + GlobalisationPartyMembers_2012 + AEPI_2012)
 summary(ModelWithHighCorrelatingIndicators_2012) 
 
