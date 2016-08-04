@@ -94,3 +94,61 @@ ModelWithTrendAndSeasonalityOnly_Forecast_lm <- lm(TotalAsIs_2013 ~ ModelWithTre
 TotalAsIs_2013_lm <- lm(TotalAsIs_2013 ~ TotalPlan_2013, data = TotalAsIs_2013)
 summary(ModelWithTrendAndSeasonalityOnly_Forecast_lm)
 summary(TotalAsIs_2013_lm)
+
+
+
+
+Forecast ModelTotalEtel                                                 
+
+
+Shorten the variables in ModelTotalEtel by one year in order to be able to produce a forecast for 2013.
+
+ModelTotalEtel_2012 <- tslm(TotalEtelAsIs_2012 ~ trend + season)
+ModelBlueEtel_2012 <- tslm(BlueEtelAsIs_2012 ~ trend + season)
+ModelRedEtel_2012 <- tslm(RedEtelAsIs_2012 ~ trend + season)
+summary(ModelTotalEtel_2012) 
+summary(ModelBlueEtel_2012) 
+summary(ModelRedEtel_2012) 
+
+Forecast
+ModelTotalEtel_Forecast <- forecast(ModelTotalEtel_2012,h=12)
+ModelBlueEtel_Forecast <- forecast(ModelBlueEtel_2012,h=12)
+ModelRedEtel_Forecast <- forecast(ModelRedEtel_2012,h=12)
+
+In order to be able to correlate the Forecast with the As Is Data, it is necessary to convert the Point Estimator into a time series.
+
+ModelTotalEtel_Forecast_df <-as.data.frame(ModelTotalEtel_Forecast) 
+ModelBlueEtel_Forecast_df <-as.data.frame(ModelBlueEtel_Forecast) 
+ModelRedEtel_Forecast_df <-as.data.frame(ModelRedEtel_Forecast) 
+ModelTotalEtel_PointForecast <- ts(ModelTotalEtel_Forecast_df$"Point Forecast", start=c(2013,1), end=c(2013,12), frequency=12)
+ModelBlueEtel_PointForecast <- ts(ModelBlueEtel_Forecast_df$"Point Forecast", start=c(2013,1), end=c(2013,12), frequency=12)
+ModelRedEtel_PointForecast <- ts(ModelRedEtel_Forecast_df$"Point Forecast", start=c(2013,1), end=c(2013,12), frequency=12)
+
+Correlation of the forecasts and As Is Data. As a comparison, the correlation of the As Is Data for 2013 with the Plan Data.
+
+cor(ModelTotalEtel_PointForecast, TotalEtelAsIs_2013) 
+cor(TotalEtelPlan_2013, TotalEtelAsIs_2013)
+cor(ModelBlueEtel_PointForecast, BlueEtelAsIs_2013) 
+cor(BlueEtelPlan_2013, BlueEtelAsIs_2013)
+cor(ModelRedEtel_PointForecast, RedEtelAsIs_2013) 
+cor(RedEtelPlan_2013, RedEtelAsIs_2013)
+
+
+Forecast ModelWithTotalUrbanoExports                                   
+
+
+Shorten the variables in ModelWithTotalUrbanoExports by one year in order to be able to produce a forecast for 2013.
+ModelWithTotalUrbanoExports_2012 <- tslm(TotalAsIs_2012 ~ trend + season + UrbanoExports_2012)
+summary(ModelWithTotalUrbanoExports_2012) 
+
+Add "newdata" to the 2013 indicator values for the forecast.
+
+ModelWithTotalUrbanoExports_Forecast <- forecast(ModelWithTotalUrbanoExports_2012, newdata=data.frame(UrbanoExports_2012=UrbanoExports_2013), h=12)
+plot(ModelWithTotalUrbanoExports_Forecast,main="ModelWithTotalUrbanoExports_Forecast")
+ModelWithTotalUrbanoExports_Forecast
+plot(ModelTotalEtel_Forecast,main="ModelTotalEtel_Forecast")
+plot(ModelBlueEtel_Forecast,main="ModelBlueEtel_Forecast")
+plot(ModelRedEtel_Forecast,main="ModelRedEtel_Forecast")
+ModelTotalEtel_Forecast
+ModelBlueEtel_Forecast
+ModelRedEtel_Forecast
