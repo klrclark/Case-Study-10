@@ -5,7 +5,7 @@ ModelWithAlllIndicators and with each indicator individually             #
 #################################################################################
 
 # All Indiators in one model:
-ModelWithAlllIndicators <- tslm(TotalAsIs ~ trend + season + CEPI + SIGov + Temperature + Births + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI + PPIEtel + NationalHolidays + ChulwalarIndex + Inflation + IndependenceDayPresents)
+ModelWithAlllIndicators <- tslm(TotalEtelAsIs ~ trend + season + CEPI + SIGov + Temperature + Births + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI + PPIEtel + NationalHolidays + ChulwalarIndex + Inflation + IndependenceDayPresents)
 summary(ModelWithAlllIndicators)
 
 
@@ -13,79 +13,78 @@ summary(ModelWithAlllIndicators)
 # The CEPI Indicator correlated best with total exports. Indeed the multiple R² 
 # improved the model slighltly compared to the simple ModelWithTrendAndSeasonalityOnly 
 # However the adjusted R² remains the same.
-ModelWithCEPI <- tslm(TotalAsIs ~ trend + season + CEPI)
+ModelWithCEPI <- tslm(TotalEtelAsIs ~ trend + season + CEPI)
 summary(ModelWithCEPI)    
 
 
 # SIGov:
 # The Satisfaction Index (gov)  hardly changes the function of the model.
-ModelWithSIGov <- tslm(TotalAsIs ~ trend + season + SIGov)
+ModelWithSIGov <- tslm(TotalEtelAsIs ~ trend + season + SIGov)
 summary(ModelWithSIGov)    
 
 
 # Temperature:
-ModelWithTemperature <- tslm(TotalAsIs ~ trend + season + Temperature)
+ModelWithTemperature <- tslm(TotalEtelAsIs ~ trend + season + Temperature)
 summary(ModelWithTemperature)
 
 
 # Births:
-ModelWithBirths <- tslm(TotalAsIs ~ trend + season + Births)
+ModelWithBirths <- tslm(TotalEtelAsIs ~ trend + season + Births)
 summary(ModelWithBirths) 
 
 
 # SIExtern:
-ModelWithSIExtern <- tslm(TotalAsIs ~ trend + season + SIExtern)
+ModelWithSIExtern <- tslm(TotalEtelAsIs ~ trend + season + SIExtern)
 summary(ModelWithSIExtern) 
 
 
 # UrbanoExports:
 # Indicator with adjusted R² shows a better result than the reference model (ModelWithTrendAndSeasonalityOnly).
 # The individual months are also very significant.
-ModelWithTotalUrbanoExports <- tslm(TotalAsIs ~ trend + season + UrbanoExports)
+ModelWithTotalUrbanoExports <- tslm(TotalEtelAsIs ~ trend + season + UrbanoExports)
 summary(ModelWithTotalUrbanoExports) 
 
 
 # GlobalisationPartyMembers:
-ModelWithGlobalisationPartyMembers <- tslm(TotalAsIs ~ trend + season + GlobalisationPartyMembers)
+ModelWithGlobalisationPartyMembers <- tslm(TotalEtelAsIs ~ trend + season + GlobalisationPartyMembers)
 summary(ModelWithGlobalisationPartyMembers) 
  
 
 # AEPI:
-ModelWithAEPI <- tslm(TotalAsIs ~ trend + season + AEPI)
+ModelWithAEPI <- tslm(TotalEtelAsIs ~ trend + season + AEPI)
 summary(ModelWithAEPI) 
 
 
 # PPIEtel:
-ModelWithPPIEtel <- tslm(TotalAsIs ~ trend + season + PPIEtel)
+ModelWithPPIEtel <- tslm(TotalEtelAsIs ~ trend + season + PPIEtel)
 summary(ModelWithPPIEtel)
 
 
 # NationalHolidays:
-# Indicator with the best adjusted R². Thej months remain very significant and the indicator
-# itself has a p-value of 0,00636**
-ModelWithNationalHolidays <- tslm(TotalAsIs ~ trend + season + NationalHolidays)
+# Indicator with the best adjusted R². The months remain very significant and the indicator
+
+ModelWithNationalHolidays <- tslm(TotalEtelAsIs ~ trend + season + NationalHolidays)
 summary(ModelWithNationalHolidays)
  
 
 # ChulwalarIndex:
-ModelWithChulwalarIndex <- tslm(TotalAsIs ~ trend + season + ChulwalarIndex)
+ModelWithChulwalarIndex <- tslm(TotaTotalEtelAsIslAsIs ~ trend + season + ChulwalarIndex)
 summary(ModelWithChulwalarIndex) 
 
 
 # Inflation:
-ModelWithInflation <- tslm(TotalAsIs ~ trend + season + Inflation)
+ModelWithInflation <- tslm(TotalEtelAsIs ~ trend + season + Inflation)
 summary(ModelWithInflation)
 
 
 # IndependenceDayPresents:
-ModelWithIndependenceDayPresents <- tslm(TotalAsIs ~ trend + season + IndependenceDayPresents)
+ModelWithIndependenceDayPresents <- tslm(TotalEtelAsIs ~ trend + season + IndependenceDayPresents)
 summary(ModelWithIndependenceDayPresents)
 
 
 # InfluenceNationalHolidays:
 # Indicator with the best adjusted R². The months remain very significant and the indicator
-# itself has a p-value of 0,00636**
-ModelWithInfluenceNationalHolidays <- tslm(TotalAsIs ~ trend + season + InfluenceNationalHolidays)
+ModelWithInfluenceNationalHolidays <- tslm(TotalEtelAsIs ~ trend + season + InfluenceNationalHolidays)
 summary(ModelWithInfluenceNationalHolidays)
 
 
@@ -97,7 +96,7 @@ summary(ModelWithInfluenceNationalHolidays)
 # See the CorrelationCoefficientMatrix for clarification.
 IndicatorsCorrelationCoefficientMatrix
 
-ModelWithHighCorrelatingIndicators <- tslm(TotalAsIs ~ trend + season + CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
+ModelWithHighCorrelatingIndicators <- tslm(TotalEtelAsIs ~ trend + season + CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
 summary(ModelWithHighCorrelatingIndicators) 
 
 # It can be seen that the addition of these indicators causes the seasonality to be weakened. 
@@ -113,7 +112,7 @@ ModelWithLowCorrelatingIndicators
 # See the CorrelationCoefficientMatrix for clarification.
 IndicatorsCorrelationCoefficientMatrix
 
-ModelWithLowCorrelatingIndicators <- tslm(TotalAsIs ~ trend + season + NationalHolidays + UrbanoExports + GlobalisationPartyMembers)
+ModelWithLowCorrelatingIndicators <- tslm(TotalEtelAsIs ~ trend + season + NationalHolidays + UrbanoExports + GlobalisationPartyMembers)
 summary(ModelWithLowCorrelatingIndicators) 
 
 # It can be seen that the addition of these indicators causes the seasonality to be weakened. 
@@ -124,7 +123,7 @@ summary(ModelWithLowCorrelatingIndicators)
 ModelWithTrendAndSeasonalityOnly                                         #
 #################################################################################
 
-ModelWithTrendAndSeasonalityOnly <- tslm(TotalAsIs ~ trend + season)
+ModelWithTrendAndSeasonalityOnly <- tslm(TotalEtelAsIs ~ trend + season)
 summary(ModelWithTrendAndSeasonalityOnly)
 
 # Remains one of the best models when looking at total exports.
@@ -133,7 +132,7 @@ summary(ModelWithTrendAndSeasonalityOnly)
 ModelWithoutTrendAndSeasonality                                          #
 #################################################################################
 
-ModelWithoutTrendAndSeasonality <- tslm(TotalAsIs ~ CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
+ModelWithoutTrendAndSeasonality <- tslm(TotalEtelAsIs ~ CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
 summary(ModelWithoutTrendAndSeasonality)
 
 
