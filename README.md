@@ -10,14 +10,38 @@ The data is divided into three different sets:
 2. Etel Plan Data - what do future exports of the Etel flower look like
 3. External Indicators
 
+Data sets were transformed into time series data for data analysis.  Several different methods were examine to evaluate which model worked best to forecast 2014 exports for the Etel flower.
+
+1.  Exponential smoothing
+2.  Simple expontential smoothing
+3.  Holt's linear trend method                                            
+4.  Holt-Winter's seasonal method
+5.  Innovations state space models for exponential smoothing
+6.  ARIMA
+7.  ARIMA modelling
+8.  Seasonal ARIMA modelling
+9.  Auto-ARIMA modelling           
+10.  Dynamic regression models  
+
+The models were examined using all the external indicators that were identified to have a high correlation and then indicators that had low correlation between each other.
+
+1.  Monthly Change in Export Price Index (CEPI)
+2.  Monthly Satisfaction Index (SI) government based data
+3.  Average monthly temperatures in Chulwalar
+4.  Monthly births in Chulwalar
+5.  Monthly Satisfaction Index (SI) external index 
+6.  Yearly Exports from Urbano
+7.  Yearly number of Globalisation Party members in Chulwalar
+8.  Monthly Average Export Price Index for Chulwalar
+9.  Monthly Producer Price Index (PPI) for Etel in Chulwalar
+10. National Holidays
+11. Chulwalar Index (Total value of all companies in Chulwalar)
+12. Monthly Inflation rate in Chulwalar
+13. Proposed spending for National Holidays
+14. Influence of National Holiday
 
 
-
-
-
-
-
-
+Even though some external indicators provided a high correlation and adjusted R square they did not provide a statistical impact on the Etel flower exports based on the examination of the p-value.  The Etel Flower exports seem to be most impacted by trend and seasonality of the growing season of the flowers, therefore the best models were those that only looked at trend and seasonality.  The Holt - Winter's family models performed well.
 
 
 
